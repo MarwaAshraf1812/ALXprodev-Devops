@@ -16,4 +16,4 @@ HEIGHT_M=$(awk "BEGIN {print $HEIGHT * 0.1}")
 WEIGHT_KG=$(awk "BEGIN {print $WEIGHT * 0.1}")
 
 
-echo "$NAME is of type $TYPE, weighs $WEIGHT_KG kg, and is $HEIGHT_M m tall."
+echo "$NAME is of type $TYPE, weighs $WEIGHT_KG kg, and is $HEIGHT_M m tall." | sed 's/\b\(.\)/\u\1/g'
