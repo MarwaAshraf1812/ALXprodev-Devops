@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Define the Pokémon name
+POKEMON_NAME="pikachu"
+
+# Define output files
+INPUT_FILE="data.json"
+
+NAME=$(jq -r '.name' "$INPUT_FILE")
+HEIGHT=$(jq '.height' "$INPUT_FILE")
+WEIGHT=$(jq '.weight' "$INPUT_FILE")
+TYPE=$(jq -r '.types[0].type.name' "$INPUT_FILE")
+
+
+HEIGHT_M=$(awk "BEGIN {print $HEIGHT * 0.1}")
+WEIGHT_KG=$(awk "BEGIN {print $WEIGHT * 0.1}")
+
+
+echo "$NAME is of type $TYPE, weighs $WEIGHT_KG kg, and is $HEIGHT_M m tall."
